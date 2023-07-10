@@ -8,10 +8,6 @@
     "build": "tsc",
     "start": "tsc && node ."
   },
-  "keywords": [
-    "bot",
-    "discord"
-  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
