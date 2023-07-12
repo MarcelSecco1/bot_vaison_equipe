@@ -43,7 +43,9 @@ export default new Command({
   async run({ interaction, options }) {
     if (!interaction.inCachedGuild()) return;
 
-    const { member, channel } = interaction;
+    const { member, guild } = interaction;
+    const roleManager = guild.roles;
+
     //interaction.deferReply({ephemeral: false})
     const nick = options.getString("player", true);
     const tempo = options.getString("tempo", true);
@@ -52,13 +54,7 @@ export default new Command({
 
     const embed = new EmbedBuilder({
       title: "Mute",
-      description: `
-                    Autor: ${member.user} \n
-                    Player: ${nick} \n
-                    Tempo: ${tempo} \n
-                    Motivo: ${motivo} \n
-                    Prova: ${prova} \n
-                `,
+      description: `Autor: ${member.user} \n\nPlayer: ${nick} \n\nTempo: ${tempo} \n\nMotivo: ${motivo} \n\nProva: ${prova}`,
     }).setColor("#2986cc" as ColorResolvable);
 
     const message = await interaction.reply({
@@ -84,23 +80,6 @@ export default new Command({
 
     collector.on("collect", async (buttonInteraction) => {
       buttonInteraction.channel?.bulkDelete(1);
-      /*content: "Deseja mesmo apagar?",
-                    components: [new ActionRowBuilder<ButtonBuilder>({
-                        components: [
-                             new ButtonBuilder({
-                                customId: "apagar", 
-                                label: "Sim", 
-                                style: ButtonStyle.Success,
-                                emoji: "✅"
-                             }),
-                             new ButtonBuilder({
-                                customId: "cancelar", 
-                                label: "Não", 
-                                style: ButtonStyle.Secondary,
-                                emoji: "❌"
-                             })
-                        ]})]
-                        */
     });
   },
 });
