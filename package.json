@@ -1,6 +1,6 @@
 {
-  "name": "bot_vaison_equipe",
-  "description": "Discord bot",
+  "name": "comandos_equipe",
+  "description": "Discord bot of VaisonEquipe",
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
@@ -17,5 +17,6 @@
   "dependencies": {
     "discord.js": "^14.11.0",
     "dotenv": "^16.3.1"
-  }
+  },
+  "keywords": []
 }
